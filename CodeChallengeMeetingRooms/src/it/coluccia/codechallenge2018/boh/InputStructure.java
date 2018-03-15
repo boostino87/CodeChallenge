@@ -16,7 +16,7 @@ public class InputStructure {
 	
 	private Map<String, Provider> providers;
 	
-	private Map<String, Project> projects;
+	private List< Project> projects;
 	
 	public long getnProviders() {
 		return nProviders;
@@ -74,11 +74,11 @@ public class InputStructure {
 		this.providers = providers;
 	}
 
-	public Map<String, Project> getProjects() {
+	public List< Project> getProjects() {
 		return projects;
 	}
 
-	public void setProjects(Map<String, Project> projects) {
+	public void setProjects(List< Project> projects) {
 		this.projects = projects;
 	}
 

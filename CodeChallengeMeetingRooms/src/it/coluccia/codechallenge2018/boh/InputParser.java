@@ -67,7 +67,7 @@ public class InputParser {
 			}
 		}
 
-		inputStructure.setProjects(new TreeMap<String, Project>());
+		inputStructure.setProjects(new ArrayList<Project>());
 		for (long i = 0; i < nProject; i++) {
 			String[] arr = lines.get(nLines++).split(" ");
 			Project project = new Project();
@@ -81,7 +81,7 @@ public class InputParser {
 				project.getPackages().put(service, Integer.parseInt(arr[count++]));
 			}
 
-			inputStructure.getProjects().put(project.getCountry(), project);
+			inputStructure.getProjects().add(project);
 		}
 
 		return inputStructure;

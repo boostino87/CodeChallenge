@@ -5,18 +5,16 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.coluccia.codechallenge.meetingRooms.InputStructure;
-import it.coluccia.codechallenge.meetingRooms.Room;
 
 
 public class Main {
 	
 	public static void main(String[] args) throws IOException, ParseException{
-		InputStructure input = InputParser.parseInputFile("../CodeChallengeMeetingRooms/InputFiles/2018/data_50000_100.in");
+		InputStructure input = InputParser.parseInputFile("InputFiles/2018/first_Adventure.in");
 		System.out.println("###################################INPUT PARSED");
 		List<OutputProject> roomList = new ArrayList<OutputProject>();
 		
-		roomList = executeGreedyAlgorithm(input);
+		//roomList = executeGreedyAlgorithm(input);
 		System.out.println("###################################ALGORITHM EXECUTED");
 		
 		OutputGenerator outGen = new OutputGenerator();
@@ -24,8 +22,8 @@ public class Main {
 	}
 	
 	
-	private static List<OutputProject> executeGreedyAlgorithm(InputStructure input){
+	/*private static List<OutputProject> executeGreedyAlgorithm(InputStructure input){
 		input.getProjects();
-	}
+	}*/
 
 }
