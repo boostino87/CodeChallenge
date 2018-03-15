@@ -1,4 +1,4 @@
-package it.coluccia.codechallenge.meetingRooms;
+package it.coluccia.codechallenge2018.boh;
 
 import java.io.File;
 import java.io.IOException;
