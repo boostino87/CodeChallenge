@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class Project {
 	
+	private long indexProject;
 	
 	private String country;
 	
@@ -33,6 +34,14 @@ public class Project {
 
 	public void setPackages(Map<String, Integer> packages) {
 		this.packages = packages;
+	}
+
+	public long getIndexProject() {
+		return indexProject;
+	}
+
+	public void setIndexProject(long indexProject) {
+		this.indexProject = indexProject;
 	}
 	
 

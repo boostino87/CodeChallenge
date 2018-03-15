@@ -43,7 +43,7 @@ public class InputParser {
 		for (long i = 0; i < nProvider; i++) {
 			String[] arr = lines.get(nLines++).split(" ");
 			Provider provider = new Provider();
-
+			provider.setIndexProvider(i);
 			provider.setProviderName(arr[0]);
 			int nRegion = Integer.parseInt(arr[1]);
 			provider.setnRegion(nRegion);
@@ -51,6 +51,7 @@ public class InputParser {
 			provider.setRegions(new TreeMap<String, Region>());
 			for (int j = 0; j < nRegion; j++) {
 				Region region = new Region();
+				region.setIndexRegion(j);
 				region.setRegionName(lines.get(nLines++));
 				String[] packages = lines.get(nLines++).split(" ");
 				region.setnPackages(Long.parseLong(packages[0]));
@@ -71,7 +72,7 @@ public class InputParser {
 		for (long i = 0; i < nProject; i++) {
 			String[] arr = lines.get(nLines++).split(" ");
 			Project project = new Project();
-
+			project.setIndexProject(i);
 			project.setPenalty(Integer.parseInt(arr[0]));
 			project.setCountry(arr[1]);
 			project.setPackages(new TreeMap<String, Integer>());

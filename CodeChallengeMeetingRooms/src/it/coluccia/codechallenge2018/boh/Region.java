@@ -6,7 +6,7 @@ public class Region {
 	
 	
 	private String regionName;
-	
+	private long indexRegion;
 	private long nPackages;
 	
 	private double packageUnitCost;
@@ -53,6 +53,14 @@ public class Region {
 
 	public void setnPackages(long nPackages) {
 		this.nPackages = nPackages;
+	}
+
+	public long getIndexRegion() {
+		return indexRegion;
+	}
+
+	public void setIndexRegion(long indexRegion) {
+		this.indexRegion = indexRegion;
 	}
 	
 	
