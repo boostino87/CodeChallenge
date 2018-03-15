@@ -54,22 +54,7 @@ public class InputParser {
         
         lines.remove(0);
 
-        for (String line : lines) {
-        	if(numberEvents != 0){
-        		parseEvent(line,inputStructure);
-        		numberEvents--;
-        	}
-        	else{
-        		if(numberRooms != 0){
-        			parseRoom(line,inputStructure);
-        			numberRooms--;
-        		}
-        	}
-        }
         
-        if(numberEvents != 0 || numberRooms != 0 ){
-        	throw new RuntimeException("NON SONO STATE PARSIFICATI TUTTI GLI EVENTI E/O LE STANZE!");
-        }
 
         return inputStructure;
 
@@ -121,7 +106,7 @@ public class InputParser {
 		event.setTimeStart(startTime);
 		event.setTopic(eventName);
 		
-		inputStructureToEdit.getEventListInput().add(event);
+		//inputStructureToEdit.getEventListInput().add(event);
 	}
 	
 	private static void parseRoom(String line, InputStructure inputStructureToEdit) throws ParseException{
@@ -139,7 +124,7 @@ public class InputParser {
 		room.setIntervalList(new ArrayList<Interval>());
 		room.setName(roomName);
 		
-		inputStructureToEdit.getRoomListInput().add(room);
+		//inputStructureToEdit.getRoomListInput().add(room);
 
 	}
 

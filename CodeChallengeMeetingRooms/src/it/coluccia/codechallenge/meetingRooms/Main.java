@@ -26,8 +26,8 @@ public class Main {
 	 * @return
 	 */
 	private static List<Room> executeGreedyAlgorithm(InputStructure input){
-		List<Event> events = new ArrayList<>(input.getEventListInput());
-		List<Room> rooms = new ArrayList<>(input.getRoomListInput());
+		List<Event> events = new ArrayList<>(null);
+		List<Room> rooms = new ArrayList<>(null);
 		Collections.sort(rooms, new RoomComparator());
 		//Collections.reverse(rooms);
 		
