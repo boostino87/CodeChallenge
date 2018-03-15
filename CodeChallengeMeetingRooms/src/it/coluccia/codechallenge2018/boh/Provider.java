@@ -5,6 +5,7 @@ import java.util.Map;
 public class Provider {
 	private String providerName;
 	
+	private long indexProvider;
 	private int nRegion;
 	
 	private Map<String, Region> regions;
@@ -31,6 +32,14 @@ public class Provider {
 
 	public void setRegions(Map<String, Region> regions) {
 		this.regions = regions;
+	}
+
+	public long getIndexProvider() {
+		return indexProvider;
+	}
+
+	public void setIndexProvider(long indexProvider) {
+		this.indexProvider = indexProvider;
 	}
 	
 	

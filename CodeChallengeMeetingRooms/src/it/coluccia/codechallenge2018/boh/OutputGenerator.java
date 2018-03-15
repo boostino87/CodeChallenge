@@ -21,7 +21,7 @@ public class OutputGenerator {
 		
 		PrintWriter outPrintWriter = null;
 		String now = dateFormat.format(new Date());
-		File outFile = new File(String.format("C:\\Users\\s.coluccia\\git\\CodeChallenge\\CodeChallengeMeetingRooms\\OutputFiles\\2018out_%s.txt", now));
+		File outFile = new File(String.format("OutputFiles\\2018out_%s.txt", now));
 		
 		try {
 			
@@ -33,11 +33,18 @@ public class OutputGenerator {
 				
 				
 				for(OutputProject project : projectList){
+					boolean first = true;
 					for(Assegnamento assegnamento : project.getAssegnamenti()){
 						String assegnamentiOut = "";
+						if (first) {
+							first = false;
+						} else {
+							assegnamentiOut = " ";
+						}
 						assegnamentiOut += assegnamento.getIndiceProvider()+" "+assegnamento.getIndiceRegionProvider()+" "+assegnamento.getNumPacchetti();
-						outPrintWriter.println(assegnamentiOut);
+						outPrintWriter.print(assegnamentiOut);
 					}
+					outPrintWriter.println();
 					
 				}
 			}
