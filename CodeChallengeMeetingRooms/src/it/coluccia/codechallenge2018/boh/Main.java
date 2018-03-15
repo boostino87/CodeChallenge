@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
 	
 	public static void main(String[] args) throws IOException, ParseException{
-		InputStructure input = InputParser.parseInputFile("InputFiles/2018/first_Adventure.in");
+		InputStructure input = InputParser.parseInputFile("InputFiles/2018/second_Adventure.in");
 		System.out.println("###################################INPUT PARSED");
 		List<OutputProject> roomList = new ArrayList<OutputProject>();
 		
