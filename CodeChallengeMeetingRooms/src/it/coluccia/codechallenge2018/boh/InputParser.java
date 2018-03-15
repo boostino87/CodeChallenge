@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.commons.io.FileUtils;
@@ -47,34 +48,44 @@ public class InputParser {
         	int nRegion = Integer.parseInt(arr[1]);
         	provider.setnRegion(nRegion);
         	inputStructure.getProviders().put(provider.getProviderName(), provider);
+        	provider.setRegions(new TreeMap<String, Region>());
+        	 for (int j=0; j<nRegion; j++) {
+        		 Region region = new Region();
+        		 region.setRegionName(lines.get(nLines++));
+        		 String[] packages = lines.get(nLines++).split(" ");
+        		 region.setnPackages(Long.parseLong(packages[0]));
+        		 region.setPackageUnitCost(Double.parseDouble(packages[1]));
+        		 region.setPackages(new TreeMap<String,Integer>());
+        		 int count = 2;
+        		 for (String service: serviceNames) {
+        			 region.getPackages().put(service, Integer.parseInt(packages[count++]));
+        		 }
+        		 
+        		 region.setLatencies(extractLatencies(lines.get(nLines++), countryNames));
+        		 provider.getRegions().put(region.getRegionName(), region);
+        		 
+        		 
+        	 }
         }
         
         
-        int numberRooms = extractRoomsNumber(lines.get(0));
-        
-        lines.remove(0);
-
-        for (String line : lines) {
-        	if(numberEvents != 0){
-        		parseEvent(line,inputStructure);
-        		numberEvents--;
-        	}
-        	else{
-        		if(numberRooms != 0){
-        			parseRoom(line,inputStructure);
-        			numberRooms--;
-        		}
-        	}
-        }
-        
-        if(numberEvents != 0 || numberRooms != 0 ){
-        	throw new RuntimeException("NON SONO STATE PARSIFICATI TUTTI GLI EVENTI E/O LE STANZE!");
-        }
-
         return inputStructure;
 
 	}
 	
+	private static Map<String, Long> extractLatencies(String string, List<String> countryNames) {
+		String[] sssss = string.split(" ");
+		Map<String, Long> res = new TreeMap<String,Long>();
+		 int count = 0;
+		 for (String country: countryNames) {
+			 res.put(country, Long.parseLong(sssss[count++]));
+		 }
+		
+		
+		return res;
+	}
+
+
 	private static List<String> extractListNames(String string) {
 		String[] s = string.split(" ");
 		List<String> res = new ArrayList<>();

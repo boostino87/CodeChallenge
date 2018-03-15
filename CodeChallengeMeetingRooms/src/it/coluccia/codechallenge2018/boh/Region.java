@@ -7,6 +7,8 @@ public class Region {
 	
 	private String regionName;
 	
+	private long nPackages;
+	
 	private double packageUnitCost;
 	
 	private Map<String, Integer> packages;
@@ -43,6 +45,14 @@ public class Region {
 
 	public void setLatencies(Map<String, Long> latencies) {
 		this.latencies = latencies;
+	}
+
+	public long getnPackages() {
+		return nPackages;
+	}
+
+	public void setnPackages(long nPackages) {
+		this.nPackages = nPackages;
 	}
 	
 	
