@@ -31,8 +31,15 @@ public class OutputGenerator {
 				
 				outPrintWriter = new PrintWriter(outFile);
 				
-				
+				boolean fir = true;
 				for(OutputProject project : projectList){
+					
+					if (fir) {
+						fir = false;
+					} else {
+						outPrintWriter.println();
+					}
+					
 					boolean first = true;
 					for(Assegnamento assegnamento : project.getAssegnamenti()){
 						String assegnamentiOut = "";
@@ -44,7 +51,7 @@ public class OutputGenerator {
 						assegnamentiOut += assegnamento.getIndiceProvider()+" "+assegnamento.getIndiceRegionProvider()+" "+assegnamento.getNumPacchetti();
 						outPrintWriter.print(assegnamentiOut);
 					}
-					outPrintWriter.println();
+					
 					
 				}
 			}
