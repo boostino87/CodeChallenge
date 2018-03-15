@@ -17,7 +17,7 @@ public class OutputGenerator {
 		dateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
 	}
 	
-	public void generateOutput(List<Room> roomList) {
+	public void generateOutput(List<OutputProject> projectList) {
 		
 		PrintWriter outPrintWriter = null;
 		String now = dateFormat.format(new Date());
@@ -25,20 +25,18 @@ public class OutputGenerator {
 		
 		try {
 			
-			if(roomList != null) {
+			if(projectList != null) {
+				
+				Collections.sort(projectList, new ProjectComparator());
 				
 				outPrintWriter = new PrintWriter(outFile);
 				
-				for(Room room : roomList){
-					//sort events
-					Collections.sort(room.getEventList(), new EventComparator());
-					String sortedEventListOutput = "";
-					for(Event event : room.getEventList())
-						sortedEventListOutput += String.format("%s ", event.getTopic());
-					
-					//print room with events
-					String roomOutput = String.format("%s:%s", room.getName(), sortedEventListOutput.trim());
-					outPrintWriter.println(roomOutput);
+				for(OutputProject project : projectList){
+					for(Assegnamento assegnamento : project.getAssegnamenti()){
+						String assegnamentiOut = "";
+						assegnamentiOut += assegnamento.getIndiceProvider()+" "+assegnamento.getIndiceRegionProvider()+" "+assegnamento.getNumPacchetti();
+						outPrintWriter.println(assegnamentiOut);
+					}
 					
 				}
 			}

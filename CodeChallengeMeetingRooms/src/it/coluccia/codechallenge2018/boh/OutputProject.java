@@ -4,7 +4,9 @@ import java.util.List;
 
 public class OutputProject {
 	
-	List<Assegnamento> assegnamenti;
+	private List<Assegnamento> assegnamenti;
+	private int orderIndex;
+	
 
 	public List<Assegnamento> getAssegnamenti() {
 		return assegnamenti;
@@ -13,6 +15,16 @@ public class OutputProject {
 	public void setAssegnamenti(List<Assegnamento> assegnamenti) {
 		this.assegnamenti = assegnamenti;
 	}
+
+	public int getOrderIndex() {
+		return orderIndex;
+	}
+
+	public void setOrderIndex(int orderIndex) {
+		this.orderIndex = orderIndex;
+	}
+	
+	
 	
 	
 	
