@@ -35,6 +35,7 @@ public class OutputGenerator {
 				for(OutputProject project : projectList){
 					
 					if (fir) {
+						
 						fir = false;
 					} else {
 						outPrintWriter.println();
