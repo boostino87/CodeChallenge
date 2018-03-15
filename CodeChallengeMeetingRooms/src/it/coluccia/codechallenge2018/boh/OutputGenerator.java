@@ -31,6 +31,7 @@ public class OutputGenerator {
 				
 				outPrintWriter = new PrintWriter(outFile);
 				
+				
 				for(OutputProject project : projectList){
 					for(Assegnamento assegnamento : project.getAssegnamenti()){
 						String assegnamentiOut = "";
