@@ -12,11 +12,11 @@ import java.util.List;
 public class Main {
 	
 	public static void main(String[] args) throws IOException, ParseException{
-		InputStructure input = InputParser.parseInputFile("../CodeChallengeMeetingRooms/InputFiles/2018/data_50000_100.in");
+		InputStructure input = InputParser.parseInputFile("InputFiles/2018/second_Adventure.in");
 		System.out.println("###################################INPUT PARSED");
 		List<OutputProject> roomList = new ArrayList<OutputProject>();
 		
-		roomList = executeGreedyAlgorithm(input);
+		//roomList = executeGreedyAlgorithm(input);
 		System.out.println("###################################ALGORITHM EXECUTED");
 		
 		OutputGenerator outGen = new OutputGenerator();
@@ -24,7 +24,7 @@ public class Main {
 	}
 	
 	
-	private static List<OutputProject> executeGreedyAlgorithm(InputStructure input){
+	/*private static List<OutputProject> executeGreedyAlgorithm(InputStructure input){
 		List<Project> projects = new ArrayList<Project>(input.getProjects().values());
 		List<Provider> providers = new ArrayList<Provider>(input.getProviders().values());
 		List<OutputProject> output = new ArrayList<>();
@@ -54,6 +54,6 @@ public class Main {
 		return true;
 		
 		
-	}
+	}*/
 
 }
